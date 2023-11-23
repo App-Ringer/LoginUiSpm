@@ -19,56 +19,55 @@ public struct LoginView: View {
     }
     
     public var body: some View {
-            VStack {
-                Text("Sign In")
-                    .foregroundColor(.black).fontWeight(.bold).font(.system(size: 24))
+        VStack(alignment: .leading) {
+            Text("Sign In")
+                .foregroundColor(.black).fontWeight(.bold).font(.system(size: 28))
+            
+            CustomTextField(imageName: "person", placeholder: "Email", text: $email)
+            CustomPasswordTextField(imageName: "lock", placeholder: "Password", isPasswordVisible: $isPasswordVisible, text: $password)
+            
+            HStack {
                 Spacer()
-                
-                CustomTextField(imageName: "person", placeholder: "Email", text: $email)
-                CustomPasswordTextField(imageName: "lock", placeholder: "Password", isPasswordVisible: $isPasswordVisible, text: $password)
-                
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        // Add your "Forgot Password" logic here
-                        print("Forgot Password tapped")
-                    }) {
-                        Text("Forgot Password?")
-                            .foregroundColor(.blue).fontWeight(.bold).font(.system(size: 15))
-                    }
-                }
-                .padding(.top, 10)
-                
-                HStack {
-                    Text("Don't have an account?")
-                        .foregroundColor(.gray).fontWeight(.bold).font(.system(size: 15))
-                    Text("Sign Up")
+                Button(action: {
+                    // Add your "Forgot Password" logic here
+                    print("Forgot Password tapped")
+                }) {
+                    Text("Forgot Password?")
                         .foregroundColor(.blue).fontWeight(.bold).font(.system(size: 15))
                 }
-                .padding(.top, 10)
-                
-                Button(action: {
-                    print("Email: \(email)")
-                    print("Password: \(password)")
-                    isLoginSuccessful = true
-                }) {
-                    HStack {
-                        Spacer()
-                        Text("Sign In")
-                            .padding(10)
-                            .foregroundColor(.white).font(.system(size: 20, weight: .bold))
-                        Spacer()
-                    }.background(Color.black).cornerRadius(10)
-                }.padding(.top, 10)
-                
-                HStack {
-                    Text("Login with Google, Facebook or Apple")
-                        .foregroundColor(.gray).fontWeight(.bold).font(.system(size: 15))
-                }
-                .padding(.top, 10)
-                
-                SocialLoginView()
-                Spacer()
             }
+            .padding(.top, 10)
+            
+            HStack {
+                Text("Don't have an account?")
+                    .foregroundColor(.gray).fontWeight(.bold).font(.system(size: 15))
+                Text("Sign Up")
+                    .foregroundColor(.blue).fontWeight(.bold).font(.system(size: 15))
+            }
+            .padding(.top, 10)
+            
+            Button(action: {
+                print("Email: \(email)")
+                print("Password: \(password)")
+                isLoginSuccessful = true
+            }) {
+                HStack {
+                    Spacer()
+                    Text("Sign In")
+                        .padding(10)
+                        .foregroundColor(.white).font(.system(size: 20, weight: .bold))
+                    Spacer()
+                }.background(Color.black).cornerRadius(10)
+            }.padding(.top, 10)
+            
+            HStack {
+                Text("Login with Google, Facebook or Apple")
+                    .foregroundColor(.gray).fontWeight(.bold).font(.system(size: 15))
+            }
+            .padding(.top, 10)
+            
+            SocialLoginView()
+            Spacer()
+        }.padding()
     }
 }
