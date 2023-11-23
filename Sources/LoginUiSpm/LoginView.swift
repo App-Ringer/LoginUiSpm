@@ -20,6 +20,10 @@ public struct LoginView: View {
     
     public var body: some View {
             VStack {
+                Text("Sign In")
+                    .foregroundColor(.black).fontWeight(.bold).font(.system(size: 24))
+                Spacer()
+                
                 CustomTextField(imageName: "person", placeholder: "Email", text: $email)
                 CustomPasswordTextField(imageName: "lock", placeholder: "Password", isPasswordVisible: $isPasswordVisible, text: $password)
                 
@@ -66,7 +70,5 @@ public struct LoginView: View {
                 SocialLoginView()
                 Spacer()
             }
-            .padding()
-            .navigationTitle("Sign In")
     }
 }
