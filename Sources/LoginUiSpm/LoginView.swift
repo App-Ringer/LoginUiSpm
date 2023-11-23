@@ -19,7 +19,7 @@ public struct LoginView: View {
     }
     
     public var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .center) {
             Text("Sign In")
                 .foregroundColor(.black).fontWeight(.bold).font(.system(size: 28))
             
